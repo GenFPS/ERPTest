@@ -7,7 +7,11 @@
     <title>{{ .Title}}</title>
   </head>
   <body>
-    <h1>{{.Title}}</h1>
-    <p>{{ .Message}}</p>
+    <h1>{{ .Title}}</h1>
+    <ul>
+      {{range .Materials}}
+      <li><b>{{ .Type }}</b>: {{ .Quantity}}</li>
+      {{end}}
+    </ul>
   </body>
 </html>
