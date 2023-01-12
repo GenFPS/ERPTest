@@ -2,23 +2,32 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 )
-  
+
+type ProductOrder struct {
+    Title string
+    Message string
+}
+
 func main() {
+      
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
-        http.ServeFile(w, r, "product.html")
-    })
-    http.HandleFunc("/postform", func(w http.ResponseWriter, r *http.Request){
-     
-        product1 := r.FormValue("product1")
-        //product2 := r.FormValue("product2")
-        
 
-        fmt.Fprintf(w, "Продукция номер: %s", product1)
-		// fmt.Fprintf(w, "Продукция 2: %s", product2)
+        data := ProductOrder{
+            Title: "Производственный заказ",
+            Message: "Получить производственный план",
+        }
+        tmpl1 := template.Must(template.New("data").Parse(`<div>
+            <h1>{{ .Title}}</h1>
+            <p>{{ .Message}}</p>
+        </div>`))
+
+        tmpl1.Execute(w, data)
     })
-	fmt.Println("Server is listening...")
-	http.ListenAndServe(":8080", nil)
+ 
+    fmt.Println("Server is listening...")
+    http.ListenAndServe(":8080", nil)
 }
