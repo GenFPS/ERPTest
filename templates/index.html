@@ -7,23 +7,36 @@
     <title>ERP-System</title>
   </head>
   <body>
-    <table>
-      <thead>
-        <th>IdOrder</th>
-        <th>ProductType</th>
-        <th>Quantity</th>
-        <th>RegDate</th>
-        <th>ExecDate</th>
-      </thead>
-      {{range . }}
-      <tr>
-        <td>{{.IdOrder}}</td>
-        <td>{{.ProductType}</td>
-        <td>{{.Quantity}}</td>
-        <td>{{.RegDate}}</td>
-        <td>{{.ExecDate}}</td>
-      </tr>
-      {{end}}
-    </table>
+    <h1>ERP-System</h1>
+    <p>
+      <form action="info.html" target="_blank">
+        <button>Получить информацию о заказе</button>
+      </form>
+    </p>
+    <p>
+      <form action="stockB.html" target="_blank">
+        <button>Получить информацию о складских остатках</button>
+      </form>
+    </p>
+    <p>
+      <form action="step1.html" target="_blank">
+        <button>Получить информацию о ТМЦ этапа 1</button>
+      </form>
+    </p>
+    <p>
+      <form action="step2.html" target="_blank">
+        <button>Получить информацию о ТМЦ этапа 2</button>
+      </form>
+    </p>
+    <p>
+      <form action="Acc1.html" target="_blank">
+        <button>Выполнить проводку Дт20 Кт10</button>
+      </form>
+    </p>
+    <p>
+      <form action="Acc2.html" target="_blank">
+        <button>Выполнить проводку Дт43 Кт20</button>
+      </form>
+    </p>
   </body>
 </html>
