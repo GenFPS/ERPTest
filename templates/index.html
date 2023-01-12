@@ -4,14 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title}}</title>
+    <title>ERP-System</title>
   </head>
   <body>
-    <h1>{{ .Title}}</h1>
-    <ul>
-      {{range .Materials}}
-      <li><b>{{ .Type }}</b>: {{ .Quantity}}</li>
+    <table>
+      <thead>
+        <th>IdOrder</th>
+        <th>ProductType</th>
+        <th>Quantity</th>
+        <th>RegDate</th>
+        <th>ExecDate</th>
+      </thead>
+      {{range . }}
+      <tr>
+        <td>{{.IdOrder}}</td>
+        <td>{{.ProductType}</td>
+        <td>{{.Quantity}}</td>
+        <td>{{.RegDate}}</td>
+        <td>{{.ExecDate}}</td>
+      </tr>
       {{end}}
-    </ul>
+    </table>
   </body>
 </html>
